@@ -33,5 +33,10 @@ Before running the app, ensure you have the following installed:
    ```bash
    git clone https://github.com/your-username/quiz-app.git
 ## Pictuers:
+<p float="left">
+  <img src="assets/images/play1.png" width="200" />
+  <img src="assets/images/play2.png" width="200" />
+</p>
+
 
 
