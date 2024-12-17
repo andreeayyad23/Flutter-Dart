@@ -7,7 +7,7 @@ void main() {
         backgroundColor: Colors.red,
         appBar: AppBar(
           backgroundColor: Colors.red,
-          title: Text(
+          title: const Text(
             'Flutter App',
             style: TextStyle(color: Colors.white),
           ),
@@ -15,12 +15,12 @@ void main() {
         body: Center(
           child: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [Colors.red, Colors.pink]),
+              gradient: const LinearGradient(colors: [Colors.red, Colors.pink]),
               border: Border.all(color: Colors.white, width: 5),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
+            child: const Padding(
+              padding: EdgeInsets.all(20.0),
               child: Text(
                 'Hello, World!',
                 style: TextStyle(fontSize: 24, color: Colors.white),

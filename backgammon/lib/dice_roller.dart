@@ -8,13 +8,11 @@ class DiceRoller extends StatefulWidget {
   const DiceRoller({super.key});
 
   @override
-  State<DiceRoller> createState() {
-    return _DiceRollerState();
-  }
+  State<DiceRoller> createState() => _DiceRollerState();
 }
 
 class _DiceRollerState extends State<DiceRoller> {
-  var currentDiceRoll = 2;
+  int currentDiceRoll = 2;
   bool isRolling = false;
   Timer? _timer;
 
@@ -22,7 +20,7 @@ class _DiceRollerState extends State<DiceRoller> {
     if (isRolling) return;
     isRolling = true;
 
-    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       setState(() {
         currentDiceRoll = randomizer.nextInt(6) + 1;
       });
@@ -48,10 +46,7 @@ class _DiceRollerState extends State<DiceRoller> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Image.asset(
-          'assets/images/dice-$currentDiceRoll.png',
-          width: 200,
-        ),
+        Image.asset('assets/images/dice-$currentDiceRoll.png', width: 200),
         const SizedBox(height: 20),
         TextButton(
           onPressed: rollDice,
@@ -62,7 +57,7 @@ class _DiceRollerState extends State<DiceRoller> {
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
-              side: const BorderSide(color: Colors.white, width: 2),
+              side: const BorderSide(color: Colors.white),
             ),
           ),
           child: Text(isRolling ? 'Rolling...' : 'Roll Dice'),
