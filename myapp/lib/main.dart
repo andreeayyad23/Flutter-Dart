@@ -1,160 +1,51 @@
-void main(List<String> args) {
+// flutter_examples.dart
 
-int factorial(int n) {
-    if (n == 0) {
-      return 1;
-    } else {
-      return n * factorial(n - 1);
-    }
-  }
+void main() {
+  // Variables and Primitive Types
+  int age = 25;
+  double height = 5.9;
+  String name = 'John Doe';
+  bool isDeveloper = true;
 
-  int Function(int) twice(int Function(int) f) {
-    return (int x) {
-      return 1;
-    };
-  }
+  print('Name: $name');
+  print('Age: $age');
+  print('Height: $height');
+  print('Is Developer: $isDeveloper');
 
-  // Arithmetic operations
-  int result = 5 ~/ 5;
-  double resultDouble = 5 / 5;
-  print('Integer division result: $result');
-  print('Double division result: $resultDouble');
+  // Functions
+  int result = add(5, 3);
+  print('The result is: $result'); // Output: The result is: 8
 
-  int x = 10;
-  int y = 3;
-  print('Addition result: ${x + y}');
-  print('Subtraction result: ${x - y}');
-  print('Multiplication result: ${x * y}');
-  print('Division result: ${x / y}');
-  print('Modulus result: ${x % y}');
-  print('Integer division result: ${x ~/ y}');
+  // Classes
+  var person = Person('Alice', 30);
+  person.introduce(); // Output: Hi, my name is Alice and I am 30 years old.
 
-  // Comparison operations
-  bool isEqual = 5 == 5;
-  bool isNotEqual = 5 != 5;
-  print('Is equal: $isEqual');
-  print('Is not equal: $isNotEqual');
+  // Asynchrony
+  fetchData().then((data) => print(data)); // Output after 2 seconds: Data fetched
 
-  // String interpolation
-  String myString = 'Hello ${5 + 5}';
-  print(myString);
+  // Collections
+  List<int> numbers = [1, 2, 3, 4, 5];
+  Map<String, int> ages = {'Alice': 30, 'Bob': 25};
 
-  final myFinalVariable = 5;
-  if (myFinalVariable == 5) {
-    print('myFinalVariable is 5');
-  } else if (myFinalVariable == 10) {
-    print('myFinalVariable is 10');
-  } else {
-    print('myFinalVariable is not 5 or 10');
-  }
-
-  switch (myFinalVariable) {
-    case 5:
-      print('myFinalVariable is 5');
-      break;
-    case 10:
-      print('myFinalVariable is 10');
-      break;
-    default:
-      print('myFinalVariable is not 5 or 10');
-  }
-
-  for (int i = 0; i < 10; i++) {
-    print('i is $i');
-  }
-
-  bool condition = true;
-  while (condition) {
-    print('condition is true');
-    condition = false;
-  }
-  do {
-    print('hello');
-    condition = false;
-  } while (condition);
-
-  String returnStringNested() {
-    return 'Hello';
-  }
-
-  String returnString() {
-    return 'Hello';
-  }
-
-  void otherFunction() {
-    returnString();
-    returnStringNested();
-  }
-
-  void mainFunction() {
-    returnStringNested();
-    returnString();
-    otherFunction();
-  }
-
-  mainFunction();
+  print('Numbers: $numbers');
+  print('Ages: $ages');
 }
 
-void positionalParameters(String firstName, double height, int age) {
-  print('Name: $firstName, Age: $age, Height: $height');
+// Functions
+int add(int a, int b) => a + b;
+
+// Classes
+class Person {
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+
+  void introduce() => print('Hi, my name is $name and I am $age years old.');
 }
 
-void optionalParameters(String firstName, [double height = 0.0, int age = 0]) {
-  print('Name: $firstName, Age: $age, Height: $height');
-}
-
-void nameOptionalParameters({
-  int? x,
-  double? y,
-  String greet = 'Hello',
-}) {
-  nameOptionalParameters(x: 5, y: 5.0);
-}
-
-void namedRequiredParameters({required String name, required int age}) {}
-
-void improvedFunction() {
-  // Improved function with better naming conventions and comments
-  int sum = 5 + 5;
-  print('Sum: $sum');
-
-  // Improved if-else statement with more descriptive variable names
-  int myVariable = 5;
-  if (myVariable == 5) {
-    print('myVariable is 5');
-  } else if (myVariable == 10) {
-    print('myVariable is 10');
-  } else {
-    print('myVariable is not 5 or 10');
-  }
-
-  // Improved switch statement with more descriptive variable names
-  switch (myVariable) {
-    case 5:
-      print('myVariable is 5');
-      break;
-    case 10:
-      print('myVariable is 10');
-      break;
-    default:
-      print('myVariable is not 5 or 10');
-  }
-
-  // Improved for loop with more descriptive variable names
-  for (int i = 0; i < 10; i++) {
-    print('i is $i');
-  }
-
-  // Improved while loop with more descriptive variable names
-  bool myCondition = true;
-  while (myCondition) {
-    print('myCondition is true');
-    myCondition = false;
-  }
-
-  // Improved do-while loop with more descriptive variable names
-  do {
-    print('hello');
-    myCondition = false;
-  } while (myCondition);
+// Asynchrony
+Future<String> fetchData() async {
+  await Future.delayed(Duration(seconds: 2));
+  return 'Data fetched';
 }
