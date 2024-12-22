@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rpg/models/character.dart';
 import 'package:flutter_rpg/screens/profile/skill_list.dart';
 import 'package:flutter_rpg/screens/profile/stats_table.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_rpg/services/character_store.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({
@@ -127,6 +129,9 @@ class ProfileScreen extends StatelessWidget {
                           horizontal: 24, vertical: 12),
                     ),
                     onPressed: () {
+                      Provider.of<CharacterStore>(context, listen: false)
+                          .updateCharacter(characterData);
+
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: const Text('Saved...'),

@@ -18,6 +18,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  //fetch characters
+  @override
+  void initState() {
+    Provider.of<CharacterStore>(context, listen: false).fetchCharactersOnce();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   return ListView.builder(
                     itemCount: value.characters.length,
                     itemBuilder: (_, index) {
-                      return CharacterCard(characterData: value.characters[index]);
+                      return CharacterCard(
+                          characterData: value.characters[index]);
                     },
                   );
                 },
